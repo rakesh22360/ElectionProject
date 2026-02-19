@@ -4,6 +4,7 @@ import com.election.exception.ResourceNotFoundException;
 import com.election.model.*;
 import com.election.repository.*;
 import org.springframework.stereotype.Service;
+import org.springframework.lang.NonNull;
 import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -23,7 +24,7 @@ public class AnomalyService {
         return anomalyRepository.findAllByOrderByCreatedAtDesc();
     }
 
-    public Anomaly getAnomalyById(Long id) {
+    public Anomaly getAnomalyById(@NonNull Long id) {
         return anomalyRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Anomaly not found with id: " + id));
     }
@@ -37,7 +38,7 @@ public class AnomalyService {
     }
 
     @Transactional
-    public Anomaly createAnomaly(Anomaly anomaly, Long electionId, User reporter) {
+    public Anomaly createAnomaly(Anomaly anomaly, @NonNull Long electionId, User reporter) {
         Election election = electionRepository.findById(electionId)
                 .orElseThrow(() -> new ResourceNotFoundException("Election not found"));
         anomaly.setElection(election);
@@ -46,7 +47,7 @@ public class AnomalyService {
     }
 
     @Transactional
-    public Anomaly updateAnomalyStatus(Long id, String status) {
+    public Anomaly updateAnomalyStatus(@NonNull Long id, String status) {
         Anomaly anomaly = getAnomalyById(id);
         anomaly.setStatus(status);
         if ("RESOLVED".equals(status) || "DISMISSED".equals(status)) {
@@ -56,7 +57,7 @@ public class AnomalyService {
     }
 
     @Transactional
-    public void deleteAnomaly(Long id) {
+    public void deleteAnomaly(@NonNull Long id) {
         anomalyRepository.deleteById(id);
     }
 }

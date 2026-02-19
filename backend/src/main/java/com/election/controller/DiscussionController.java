@@ -6,6 +6,7 @@ import com.election.service.AuthService;
 import com.election.service.DiscussionService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.lang.NonNull;
 import java.util.List;
 import java.util.Map;
 
@@ -27,7 +28,7 @@ public class DiscussionController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Discussion> getDiscussionById(@PathVariable Long id) {
+    public ResponseEntity<Discussion> getDiscussionById(@PathVariable @NonNull Long id) {
         return ResponseEntity.ok(discussionService.getDiscussionById(id));
     }
 
@@ -44,13 +45,13 @@ public class DiscussionController {
     }
 
     @PostMapping("/{id}/replies")
-    public ResponseEntity<Discussion> addReply(@PathVariable Long id, @RequestBody Discussion reply) {
+    public ResponseEntity<Discussion> addReply(@PathVariable @NonNull Long id, @RequestBody Discussion reply) {
         User user = authService.getCurrentUser();
         return ResponseEntity.ok(discussionService.addReply(id, reply, user));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteDiscussion(@PathVariable Long id) {
+    public ResponseEntity<?> deleteDiscussion(@PathVariable @NonNull Long id) {
         discussionService.deleteDiscussion(id);
         return ResponseEntity.ok(Map.of("message", "Discussion deleted successfully"));
     }

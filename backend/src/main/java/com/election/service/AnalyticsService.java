@@ -4,6 +4,7 @@ import com.election.dto.DashboardStats;
 import com.election.model.ElectionStatus;
 import com.election.repository.*;
 import org.springframework.stereotype.Service;
+import org.springframework.lang.NonNull;
 
 @Service
 public class AnalyticsService {
@@ -39,7 +40,7 @@ public class AnalyticsService {
                 discussionRepository.countByParentIsNull());
     }
 
-    public double getVoterTurnout(Long electionId) {
+    public double getVoterTurnout(@NonNull Long electionId) {
         var election = electionRepository.findById(electionId);
         if (election.isPresent() && election.get().getTotalRegisteredVoters() > 0) {
             long votesCast = voteRepository.countByElectionId(electionId);

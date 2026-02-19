@@ -6,6 +6,7 @@ import com.election.exception.ResourceNotFoundException;
 import com.election.model.*;
 import com.election.repository.*;
 import org.springframework.stereotype.Service;
+import org.springframework.lang.NonNull;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,7 +29,7 @@ public class ElectionService {
         return electionRepository.findByOrderByElectionDateDesc();
     }
 
-    public Election getElectionById(Long id) {
+    public Election getElectionById(@NonNull Long id) {
         return electionRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Election not found with id: " + id));
     }
@@ -52,7 +53,7 @@ public class ElectionService {
     }
 
     @Transactional
-    public Election updateElection(Long id, ElectionRequest request) {
+    public Election updateElection(@NonNull Long id, ElectionRequest request) {
         Election election = getElectionById(id);
         election.setName(request.getName());
         election.setDescription(request.getDescription());
@@ -66,7 +67,7 @@ public class ElectionService {
     }
 
     @Transactional
-    public void deleteElection(Long id) {
+    public void deleteElection(@NonNull Long id) {
         electionRepository.deleteById(id);
     }
 
@@ -75,19 +76,19 @@ public class ElectionService {
     }
 
     @Transactional
-    public Candidate addCandidate(Long electionId, Candidate candidate) {
+    public Candidate addCandidate(@NonNull Long electionId, Candidate candidate) {
         Election election = getElectionById(electionId);
         candidate.setElection(election);
         return candidateRepository.save(candidate);
     }
 
     @Transactional
-    public void deleteCandidate(Long candidateId) {
+    public void deleteCandidate(@NonNull Long candidateId) {
         candidateRepository.deleteById(candidateId);
     }
 
     @Transactional
-    public Vote castVote(Long electionId, Long candidateId, User voter) {
+    public Vote castVote(@NonNull Long electionId, @NonNull Long candidateId, User voter) {
         Election election = getElectionById(electionId);
         if (election.getStatus() != ElectionStatus.ONGOING) {
             throw new RuntimeException("Election is not currently active");

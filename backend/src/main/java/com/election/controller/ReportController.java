@@ -7,6 +7,7 @@ import com.election.service.ReportService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.lang.NonNull;
 import java.util.List;
 import java.util.Map;
 
@@ -28,7 +29,7 @@ public class ReportController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Report> getReportById(@PathVariable Long id) {
+    public ResponseEntity<Report> getReportById(@PathVariable @NonNull Long id) {
         return ResponseEntity.ok(reportService.getReportById(id));
     }
 
@@ -47,13 +48,13 @@ public class ReportController {
 
     @PutMapping("/{id}")
     @PreAuthorize("hasAnyRole('ANALYST', 'ADMIN')")
-    public ResponseEntity<Report> updateReport(@PathVariable Long id, @RequestBody Report report) {
+    public ResponseEntity<Report> updateReport(@PathVariable @NonNull Long id, @RequestBody Report report) {
         return ResponseEntity.ok(reportService.updateReport(id, report));
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> deleteReport(@PathVariable Long id) {
+    public ResponseEntity<?> deleteReport(@PathVariable @NonNull Long id) {
         reportService.deleteReport(id);
         return ResponseEntity.ok(Map.of("message", "Report deleted successfully"));
     }

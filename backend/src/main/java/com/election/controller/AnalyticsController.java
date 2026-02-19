@@ -4,6 +4,7 @@ import com.election.dto.DashboardStats;
 import com.election.service.AnalyticsService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.lang.NonNull;
 import java.util.Map;
 
 @RestController
@@ -22,7 +23,7 @@ public class AnalyticsController {
     }
 
     @GetMapping("/turnout/{electionId}")
-    public ResponseEntity<Map<String, Double>> getVoterTurnout(@PathVariable Long electionId) {
+    public ResponseEntity<Map<String, Double>> getVoterTurnout(@PathVariable @NonNull Long electionId) {
         return ResponseEntity.ok(Map.of("turnout", analyticsService.getVoterTurnout(electionId)));
     }
 }

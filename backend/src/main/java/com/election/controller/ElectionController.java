@@ -9,6 +9,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.lang.NonNull;
 import java.util.List;
 import java.util.Map;
 
@@ -30,7 +31,7 @@ public class ElectionController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Election> getElectionById(@PathVariable Long id) {
+    public ResponseEntity<Election> getElectionById(@PathVariable @NonNull Long id) {
         return ResponseEntity.ok(electionService.getElectionById(id));
     }
 
@@ -48,45 +49,48 @@ public class ElectionController {
 
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<Election> updateElection(@PathVariable Long id, @Valid @RequestBody ElectionRequest request) {
+    public ResponseEntity<Election> updateElection(@PathVariable @NonNull Long id,
+            @Valid @RequestBody ElectionRequest request) {
         return ResponseEntity.ok(electionService.updateElection(id, request));
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> deleteElection(@PathVariable Long id) {
+    public ResponseEntity<?> deleteElection(@PathVariable @NonNull Long id) {
         electionService.deleteElection(id);
         return ResponseEntity.ok(Map.of("message", "Election deleted successfully"));
     }
 
     @GetMapping("/{id}/candidates")
-    public ResponseEntity<List<Candidate>> getCandidates(@PathVariable Long id) {
+    public ResponseEntity<List<Candidate>> getCandidates(@PathVariable @NonNull Long id) {
         return ResponseEntity.ok(electionService.getCandidates(id));
     }
 
     @PostMapping("/{id}/candidates")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<Candidate> addCandidate(@PathVariable Long id, @Valid @RequestBody Candidate candidate) {
+    public ResponseEntity<Candidate> addCandidate(@PathVariable @NonNull Long id,
+            @Valid @RequestBody Candidate candidate) {
         return ResponseEntity.ok(electionService.addCandidate(id, candidate));
     }
 
     @DeleteMapping("/candidates/{candidateId}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> deleteCandidate(@PathVariable Long candidateId) {
+    public ResponseEntity<?> deleteCandidate(@PathVariable @NonNull Long candidateId) {
         electionService.deleteCandidate(candidateId);
         return ResponseEntity.ok(Map.of("message", "Candidate removed successfully"));
     }
 
     @PostMapping("/{id}/vote")
     @PreAuthorize("hasAnyRole('CITIZEN')")
-    public ResponseEntity<?> castVote(@PathVariable Long id, @RequestBody Map<String, Long> body) {
+    public ResponseEntity<?> castVote(@PathVariable @NonNull Long id, @RequestBody Map<String, Long> body) {
         User voter = authService.getCurrentUser();
-        electionService.castVote(id, body.get("candidateId"), voter);
+        electionService.castVote(id,
+                java.util.Objects.requireNonNull(body.get("candidateId"), "candidateId is required"), voter);
         return ResponseEntity.ok(Map.of("message", "Vote cast successfully"));
     }
 
     @GetMapping("/{id}/has-voted")
-    public ResponseEntity<Map<String, Boolean>> hasVoted(@PathVariable Long id) {
+    public ResponseEntity<Map<String, Boolean>> hasVoted(@PathVariable @NonNull Long id) {
         User user = authService.getCurrentUser();
         return ResponseEntity.ok(Map.of("hasVoted", electionService.hasVoted(id, user.getId())));
     }

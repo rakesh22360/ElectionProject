@@ -5,6 +5,7 @@ import com.election.repository.UserRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.lang.NonNull;
 import java.util.List;
 import java.util.Map;
 
@@ -25,7 +26,7 @@ public class AdminController {
     }
 
     @PutMapping("/users/{id}/toggle")
-    public ResponseEntity<User> toggleUser(@PathVariable Long id) {
+    public ResponseEntity<User> toggleUser(@PathVariable @NonNull Long id) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));
         user.setEnabled(!user.isEnabled());
@@ -33,7 +34,7 @@ public class AdminController {
     }
 
     @DeleteMapping("/users/{id}")
-    public ResponseEntity<?> deleteUser(@PathVariable Long id) {
+    public ResponseEntity<?> deleteUser(@PathVariable @NonNull Long id) {
         userRepository.deleteById(id);
         return ResponseEntity.ok(Map.of("message", "User deleted successfully"));
     }

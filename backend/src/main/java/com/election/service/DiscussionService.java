@@ -4,6 +4,7 @@ import com.election.exception.ResourceNotFoundException;
 import com.election.model.*;
 import com.election.repository.*;
 import org.springframework.stereotype.Service;
+import org.springframework.lang.NonNull;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class DiscussionService {
         return discussionRepository.findByParentIsNullOrderByCreatedAtDesc();
     }
 
-    public Discussion getDiscussionById(Long id) {
+    public Discussion getDiscussionById(@NonNull Long id) {
         return discussionRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Discussion not found with id: " + id));
     }
@@ -43,7 +44,7 @@ public class DiscussionService {
     }
 
     @Transactional
-    public Discussion addReply(Long parentId, Discussion reply, User user) {
+    public Discussion addReply(@NonNull Long parentId, Discussion reply, User user) {
         Discussion parent = getDiscussionById(parentId);
         reply.setParent(parent);
         reply.setElection(parent.getElection());
@@ -52,7 +53,7 @@ public class DiscussionService {
     }
 
     @Transactional
-    public void deleteDiscussion(Long id) {
+    public void deleteDiscussion(@NonNull Long id) {
         discussionRepository.deleteById(id);
     }
 }

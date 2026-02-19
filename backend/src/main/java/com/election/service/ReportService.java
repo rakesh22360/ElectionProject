@@ -4,6 +4,7 @@ import com.election.exception.ResourceNotFoundException;
 import com.election.model.*;
 import com.election.repository.*;
 import org.springframework.stereotype.Service;
+import org.springframework.lang.NonNull;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class ReportService {
         return reportRepository.findAllByOrderByCreatedAtDesc();
     }
 
-    public Report getReportById(Long id) {
+    public Report getReportById(@NonNull Long id) {
         return reportRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Report not found with id: " + id));
     }
@@ -43,7 +44,7 @@ public class ReportService {
     }
 
     @Transactional
-    public Report updateReport(Long id, Report updated) {
+    public Report updateReport(@NonNull Long id, Report updated) {
         Report report = getReportById(id);
         report.setTitle(updated.getTitle());
         report.setContent(updated.getContent());
@@ -52,7 +53,7 @@ public class ReportService {
     }
 
     @Transactional
-    public void deleteReport(Long id) {
+    public void deleteReport(@NonNull Long id) {
         reportRepository.deleteById(id);
     }
 }
