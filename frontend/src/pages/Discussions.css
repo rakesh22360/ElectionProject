@@ -12,13 +12,13 @@
 }
 
 .disc-page-header h1 {
-    color: #fff;
+    color: var(--text-primary);
     margin: 0;
     font-size: 28px
 }
 
 .disc-page-header p {
-    color: rgba(255, 255, 255, .4);
+    color: var(--text-muted);
     margin: 4px 0 0
 }
 
@@ -34,15 +34,16 @@
 }
 
 .disc-form-card {
-    background: rgba(255, 255, 255, .03);
-    border: 1px solid rgba(255, 255, 255, .06);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 24px;
-    margin-bottom: 24px
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-card);
 }
 
 .disc-form-card h3 {
-    color: #fff;
+    color: var(--text-primary);
     margin: 0 0 16px
 }
 
@@ -54,10 +55,10 @@
 
 .disc-input {
     padding: 10px 14px;
-    background: rgba(255, 255, 255, .06);
-    border: 1px solid rgba(255, 255, 255, .1);
+    background: var(--bg-input);
+    border: 1px solid var(--border-input);
     border-radius: 10px;
-    color: #fff;
+    color: var(--text-primary);
     font-size: 14px;
     outline: none;
     flex: 1;
@@ -71,7 +72,7 @@
 }
 
 .disc-input option {
-    background: #1a1a2e
+    background: var(--bg-option)
 }
 
 .disc-form-actions {
@@ -82,10 +83,10 @@
 
 .disc-btn-cancel {
     padding: 10px 20px;
-    background: rgba(255, 255, 255, .06);
-    border: 1px solid rgba(255, 255, 255, .1);
+    background: var(--bg-card);
+    border: 1px solid var(--border-input);
     border-radius: 10px;
-    color: #fff;
+    color: var(--text-primary);
     cursor: pointer
 }
 
@@ -106,15 +107,16 @@
 }
 
 .disc-card {
-    background: rgba(255, 255, 255, .03);
-    border: 1px solid rgba(255, 255, 255, .06);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 24px;
-    transition: all .3s
+    transition: all .3s;
+    box-shadow: var(--shadow-card);
 }
 
 .disc-card:hover {
-    background: rgba(255, 255, 255, .05)
+    background: var(--bg-card-hover)
 }
 
 .disc-card-top {
@@ -128,12 +130,12 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    color: rgba(255, 255, 255, .6);
+    color: var(--text-secondary);
     font-size: 14px
 }
 
 .disc-author b {
-    color: #fff
+    color: var(--text-primary)
 }
 
 .disc-avatar {
@@ -150,21 +152,21 @@
 }
 
 .disc-tag {
-    color: rgba(255, 255, 255, .4);
+    color: var(--text-muted);
     font-size: 12px;
-    background: rgba(255, 255, 255, .05);
+    background: var(--bg-card-hover);
     padding: 4px 10px;
     border-radius: 6px
 }
 
 .disc-card h3 {
-    color: #fff;
+    color: var(--text-primary);
     margin: 0 0 8px;
     font-size: 18px
 }
 
 .disc-content {
-    color: rgba(255, 255, 255, .6);
+    color: var(--text-secondary);
     font-size: 14px;
     line-height: 1.6;
     margin: 0 0 16px
@@ -173,12 +175,12 @@
 .disc-replies {
     margin: 16px 0;
     padding: 16px;
-    background: rgba(255, 255, 255, .02);
+    background: var(--bg-reply);
     border-radius: 12px
 }
 
 .disc-replies h4 {
-    color: rgba(255, 255, 255, .4);
+    color: var(--text-muted);
     font-size: 13px;
     margin: 0 0 12px
 }
@@ -187,7 +189,7 @@
     padding: 12px;
     border-left: 2px solid rgba(108, 92, 231, .3);
     margin-bottom: 10px;
-    color: rgba(255, 255, 255, .6);
+    color: var(--text-secondary);
     font-size: 13px
 }
 
@@ -222,7 +224,7 @@
 }
 
 .disc-empty h3 {
-    color: #fff;
+    color: var(--text-primary);
     margin: 16px 0 8px
 }
 

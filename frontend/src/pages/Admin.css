@@ -9,13 +9,13 @@
 }
 
 .adm-page-header h1 {
-    color: #fff;
+    color: var(--text-primary);
     margin: 0;
     font-size: 28px
 }
 
 .adm-page-header p {
-    color: rgba(255, 255, 255, .4);
+    color: var(--text-muted);
     margin: 4px 0 0
 }
 
@@ -24,7 +24,7 @@
 }
 
 .adm-section h2 {
-    color: #fff;
+    color: var(--text-primary);
     font-size: 20px;
     margin: 0 0 16px
 }
@@ -36,14 +36,15 @@
 table {
     width: 100%;
     border-collapse: collapse;
-    background: rgba(255, 255, 255, .03);
+    background: var(--bg-card);
     border-radius: 12px;
-    overflow: hidden
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
 }
 
 th {
-    background: rgba(255, 255, 255, .06);
-    color: rgba(255, 255, 255, .6);
+    background: var(--bg-card-hover);
+    color: var(--text-secondary);
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -53,9 +54,9 @@ th {
 
 td {
     padding: 14px 16px;
-    color: rgba(255, 255, 255, .7);
+    color: var(--text-secondary);
     font-size: 14px;
-    border-bottom: 1px solid rgba(255, 255, 255, .04)
+    border-bottom: 1px solid var(--border-light)
 }
 
 .adm-role-tag {
@@ -80,9 +81,9 @@ td {
     border-radius: 8px;
     font-size: 12px;
     cursor: pointer;
-    border: 1px solid rgba(255, 255, 255, .1);
-    background: rgba(255, 255, 255, .06);
-    color: #fff;
+    border: 1px solid var(--border-input);
+    background: var(--bg-card);
+    color: var(--text-primary);
     transition: all .3s
 }
 
@@ -104,11 +105,12 @@ td {
 }
 
 .adm-form-card {
-    background: rgba(255, 255, 255, .03);
-    border: 1px solid rgba(255, 255, 255, .06);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 24px;
-    margin-bottom: 24px
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-card);
 }
 
 .adm-form-row {
@@ -119,10 +121,10 @@ td {
 
 .adm-input {
     padding: 10px 14px;
-    background: rgba(255, 255, 255, .06);
-    border: 1px solid rgba(255, 255, 255, .1);
+    background: var(--bg-input);
+    border: 1px solid var(--border-input);
     border-radius: 10px;
-    color: #fff;
+    color: var(--text-primary);
     font-size: 14px;
     outline: none;
     flex: 1;
@@ -136,7 +138,7 @@ td {
 }
 
 .adm-input option {
-    background: #1a1a2e
+    background: var(--bg-option)
 }
 
 .adm-form-actions {
@@ -147,10 +149,10 @@ td {
 
 .adm-btn-cancel {
     padding: 10px 20px;
-    background: rgba(255, 255, 255, .06);
-    border: 1px solid rgba(255, 255, 255, .1);
+    background: var(--bg-card);
+    border: 1px solid var(--border-input);
     border-radius: 10px;
-    color: #fff;
+    color: var(--text-primary);
     cursor: pointer
 }
 
@@ -171,10 +173,11 @@ td {
 }
 
 .adm-admin-card {
-    background: rgba(255, 255, 255, .03);
-    border: 1px solid rgba(255, 255, 255, .06);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     border-radius: 12px;
-    padding: 16px
+    padding: 16px;
+    box-shadow: var(--shadow-card);
 }
 
 .adm-ac-header {
@@ -184,7 +187,7 @@ td {
 }
 
 .adm-ac-header h3 {
-    color: #fff;
+    color: var(--text-primary);
     margin: 0;
     font-size: 16px
 }
@@ -208,12 +211,12 @@ td {
 }
 
 .adm-status-badge.completed {
-    background: rgba(255, 255, 255, .06);
-    color: rgba(255, 255, 255, .5)
+    background: var(--bg-card-hover);
+    color: var(--text-muted)
 }
 
 .adm-admin-card p {
-    color: rgba(255, 255, 255, .4);
+    color: var(--text-muted);
     font-size: 13px;
     margin: 8px 0
 }

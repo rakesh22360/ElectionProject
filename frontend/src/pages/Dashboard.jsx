@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useTheme } from '../context/ThemeContext';
 import { getDashboardStats } from '../services/api';
 import './Dashboard.css';
 
 export default function Dashboard() {
     const [stats, setStats] = useState(null);
     const { user, logout } = useAuth();
+    const { theme, toggleTheme } = useTheme();
     const navigate = useNavigate();
 
     const userName = user?.fullName || user?.username || '';
@@ -76,6 +78,10 @@ export default function Dashboard() {
                             <span className="user-role">{userRoleDisplay}</span>
                         </div>
                     </div>
+                    <button className="theme-toggle" onClick={toggleTheme}>
+                        <span className="theme-toggle-icon">{theme === 'light' ? '🌙' : '☀️'}</span>
+                        <span className="theme-toggle-label">{theme === 'light' ? 'Dark Mode' : 'Light Mode'}</span>
+                    </button>
                     <button className="logout-btn" onClick={handleLogout}>🚪 Logout</button>
                 </div>
             </aside>

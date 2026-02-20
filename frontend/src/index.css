@@ -1,3 +1,93 @@
+/* ─── Light Theme (default) ─── */
+:root,
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f6fa;
+  --bg-card: rgba(0, 0, 0, 0.02);
+  --bg-card-hover: rgba(0, 0, 0, 0.05);
+  --bg-sidebar: #f8f9fc;
+  --bg-input: rgba(0, 0, 0, 0.04);
+  --bg-input-focus: rgba(0, 0, 0, 0.06);
+  --bg-modal: #ffffff;
+  --bg-option: #ffffff;
+  --bg-reply: rgba(0, 0, 0, 0.02);
+
+  --text-primary: #1a1a2e;
+  --text-secondary: rgba(0, 0, 0, 0.55);
+  --text-muted: rgba(0, 0, 0, 0.35);
+  --text-heading: #1a1a2e;
+
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-light: rgba(0, 0, 0, 0.05);
+  --border-input: rgba(0, 0, 0, 0.12);
+
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-modal: 0 25px 50px rgba(0, 0, 0, 0.12);
+
+  --auth-bg: linear-gradient(135deg, #667eea, #764ba2);
+  --auth-card-bg: rgba(255, 255, 255, 0.95);
+  --auth-card-border: rgba(255, 255, 255, 0.8);
+  --auth-card-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  --auth-text: #1a1a2e;
+  --auth-text-muted: rgba(0, 0, 0, 0.5);
+  --auth-input-bg: rgba(0, 0, 0, 0.04);
+  --auth-input-border: rgba(0, 0, 0, 0.12);
+  --auth-input-color: #1a1a2e;
+  --auth-input-focus-bg: rgba(0, 0, 0, 0.06);
+  --auth-input-placeholder: rgba(0, 0, 0, 0.3);
+  --auth-cred-border: rgba(0, 0, 0, 0.08);
+  --auth-cred-bg: rgba(0, 0, 0, 0.03);
+  --auth-cred-color: #1a1a2e;
+
+  --accent-primary: #6c5ce7;
+  --accent-secondary: #a855f7;
+}
+
+/* ─── Dark Theme ─── */
+[data-theme="dark"] {
+  --bg-primary: #0a0a1a;
+  --bg-secondary: #0f0f23;
+  --bg-card: rgba(255, 255, 255, 0.03);
+  --bg-card-hover: rgba(255, 255, 255, 0.06);
+  --bg-sidebar: rgba(255, 255, 255, 0.03);
+  --bg-input: rgba(255, 255, 255, 0.06);
+  --bg-input-focus: rgba(255, 255, 255, 0.12);
+  --bg-modal: #1a1a2e;
+  --bg-option: #1a1a2e;
+  --bg-reply: rgba(255, 255, 255, 0.02);
+
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --text-muted: rgba(255, 255, 255, 0.35);
+  --text-heading: #ffffff;
+
+  --border-color: rgba(255, 255, 255, 0.06);
+  --border-light: rgba(255, 255, 255, 0.04);
+  --border-input: rgba(255, 255, 255, 0.15);
+
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-modal: 0 25px 50px rgba(0, 0, 0, 0.5);
+
+  --auth-bg: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  --auth-card-bg: rgba(255, 255, 255, 0.05);
+  --auth-card-border: rgba(255, 255, 255, 0.1);
+  --auth-card-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  --auth-text: #ffffff;
+  --auth-text-muted: rgba(255, 255, 255, 0.5);
+  --auth-input-bg: rgba(255, 255, 255, 0.08);
+  --auth-input-border: rgba(255, 255, 255, 0.15);
+  --auth-input-color: #ffffff;
+  --auth-input-focus-bg: rgba(255, 255, 255, 0.12);
+  --auth-input-placeholder: rgba(255, 255, 255, 0.3);
+  --auth-cred-border: rgba(255, 255, 255, 0.1);
+  --auth-cred-bg: rgba(255, 255, 255, 0.05);
+  --auth-cred-color: #ffffff;
+
+  --accent-primary: #6c5ce7;
+  --accent-secondary: #a855f7;
+}
+
+/* ─── Reset & Base ─── */
 * {
   margin: 0;
   padding: 0;
@@ -6,11 +96,12 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background: #0a0a1a;
-  color: #fff;
+  background: var(--bg-primary);
+  color: var(--text-primary);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 #root {
@@ -20,4 +111,35 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* ─── Theme Toggle Button ─── */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.3s;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.theme-toggle:hover {
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
+}
+
+.theme-toggle-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.theme-toggle-label {
+  font-weight: 500;
 }
