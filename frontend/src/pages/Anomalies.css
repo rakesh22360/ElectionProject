@@ -1,0 +1,276 @@
+.anom-page-container {
+    padding: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.anom-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.anom-page-header h1 {
+    color: #fff;
+    margin: 0;
+    font-size: 28px;
+}
+
+.anom-page-header p {
+    color: rgba(255, 255, 255, 0.4);
+    margin: 4px 0 0;
+}
+
+.anom-btn-primary {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #6c5ce7, #a855f7);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.anom-btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+}
+
+.anom-form-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.anom-form-card h3 {
+    color: #fff;
+    margin: 0 0 20px;
+}
+
+.anom-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.anom-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.anom-form-group.anom-full-width {
+    grid-column: 1 / -1;
+}
+
+.anom-form-group label {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.anom-form-group input,
+.anom-form-group select,
+.anom-form-group textarea {
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    resize: vertical;
+}
+
+.anom-form-group select option {
+    background: #1a1a2e;
+}
+
+.anom-form-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 16px;
+}
+
+.anom-btn-cancel {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.anom-btn-submit {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #6c5ce7, #a855f7);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.anom-anomaly-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.anom-anomaly-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 20px;
+    transition: all 0.3s;
+}
+
+.anom-anomaly-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.anom-anomaly-header {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.anom-severity-badge {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.anom-severity-badge.critical {
+    background: rgba(255, 0, 0, 0.15);
+    color: #ff4444;
+}
+
+.anom-severity-badge.high {
+    background: rgba(255, 107, 107, 0.15);
+    color: #ff6b6b;
+}
+
+.anom-severity-badge.medium {
+    background: rgba(255, 217, 61, 0.15);
+    color: #ffd93d;
+}
+
+.anom-severity-badge.low {
+    background: rgba(78, 205, 196, 0.15);
+    color: #4ecdc4;
+}
+
+.anom-status-badge {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.anom-status-badge.reported {
+    background: rgba(108, 92, 231, 0.15);
+    color: #6c5ce7;
+}
+
+.anom-status-badge.under-review {
+    background: rgba(255, 217, 61, 0.15);
+    color: #ffd93d;
+}
+
+.anom-status-badge.resolved {
+    background: rgba(0, 184, 148, 0.15);
+    color: #00b894;
+}
+
+.anom-status-badge.dismissed {
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.anom-anomaly-desc {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0 0 12px;
+}
+
+.anom-anomaly-meta {
+    display: flex;
+    gap: 20px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 13px;
+}
+
+.anom-anomaly-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.anom-btn-sm {
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.anom-btn-sm.anom-resolve {
+    border-color: rgba(0, 184, 148, 0.3);
+    color: #00b894;
+}
+
+.anom-btn-sm.anom-dismiss {
+    border-color: rgba(255, 107, 107, 0.3);
+    color: #ff6b6b;
+}
+
+.anom-btn-sm:hover {
+    transform: translateY(-1px);
+}
+
+.anom-empty-state {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.anom-empty-icon {
+    font-size: 64px;
+}
+
+.anom-empty-state h3 {
+    color: #fff;
+    margin: 16px 0 8px;
+}
+
+.anom-empty-state p {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.anom-back-btn {
+    color: #a855f7;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 14px;
+    background: rgba(168, 85, 247, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.anom-back-btn:hover {
+    background: rgba(168, 85, 247, 0.2);
+}

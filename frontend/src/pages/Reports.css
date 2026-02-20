@@ -1,0 +1,223 @@
+.rpt-page-container {
+    padding: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.rpt-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.rpt-page-header h1 {
+    color: #fff;
+    margin: 0;
+    font-size: 28px;
+}
+
+.rpt-page-header p {
+    color: rgba(255, 255, 255, 0.4);
+    margin: 4px 0 0;
+}
+
+.rpt-btn-primary {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #6c5ce7, #a855f7);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.rpt-form-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.rpt-form-card h3 {
+    color: #fff;
+    margin: 0 0 20px;
+}
+
+.rpt-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.rpt-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.rpt-form-group.rpt-full-width {
+    grid-column: 1 / -1;
+}
+
+.rpt-form-group label {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.rpt-form-group input,
+.rpt-form-group select,
+.rpt-form-group textarea {
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    resize: vertical;
+}
+
+.rpt-form-group select option {
+    background: #1a1a2e;
+}
+
+.rpt-form-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 16px;
+}
+
+.rpt-btn-cancel {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.rpt-btn-submit {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #6c5ce7, #a855f7);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.rpt-reports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 16px;
+}
+
+.rpt-report-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 20px;
+    transition: all 0.3s;
+}
+
+.rpt-report-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.rpt-report-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.rpt-type-badge {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.rpt-type-badge.analysis {
+    background: rgba(108, 92, 231, 0.15);
+    color: #6c5ce7;
+}
+
+.rpt-type-badge.turnout {
+    background: rgba(0, 184, 148, 0.15);
+    color: #00b894;
+}
+
+.rpt-type-badge.fraud {
+    background: rgba(255, 107, 107, 0.15);
+    color: #ff6b6b;
+}
+
+.rpt-type-badge.general {
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.rpt-report-date {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 12px;
+}
+
+.rpt-report-card h3 {
+    color: #fff;
+    margin: 0 0 8px;
+    font-size: 16px;
+}
+
+.rpt-report-content {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0 0 12px;
+}
+
+.rpt-report-meta {
+    display: flex;
+    gap: 16px;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 12px;
+}
+
+.rpt-empty-state {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.rpt-empty-icon {
+    font-size: 64px;
+}
+
+.rpt-empty-state h3 {
+    color: #fff;
+    margin: 16px 0 8px;
+}
+
+.rpt-empty-state p {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.rpt-back-btn {
+    color: #a855f7;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 14px;
+    background: rgba(168, 85, 247, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.rpt-back-btn:hover {
+    background: rgba(168, 85, 247, 0.2);
+}

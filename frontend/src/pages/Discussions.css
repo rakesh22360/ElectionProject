@@ -1,0 +1,265 @@
+.disc-page-container {
+    padding: 32px;
+    max-width: 900px;
+    margin: 0 auto
+}
+
+.disc-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px
+}
+
+.disc-page-header h1 {
+    color: #fff;
+    margin: 0;
+    font-size: 28px
+}
+
+.disc-page-header p {
+    color: rgba(255, 255, 255, .4);
+    margin: 4px 0 0
+}
+
+.disc-btn-primary {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #6c5ce7, #a855f7);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer
+}
+
+.disc-form-card {
+    background: rgba(255, 255, 255, .03);
+    border: 1px solid rgba(255, 255, 255, .06);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px
+}
+
+.disc-form-card h3 {
+    color: #fff;
+    margin: 0 0 16px
+}
+
+.disc-form-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px
+}
+
+.disc-input {
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    flex: 1;
+    box-sizing: border-box
+}
+
+.disc-input.disc-full {
+    width: 100%;
+    resize: vertical;
+    margin-bottom: 12px
+}
+
+.disc-input option {
+    background: #1a1a2e
+}
+
+.disc-form-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end
+}
+
+.disc-btn-cancel {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer
+}
+
+.disc-btn-submit {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #6c5ce7, #a855f7);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer
+}
+
+.disc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px
+}
+
+.disc-card {
+    background: rgba(255, 255, 255, .03);
+    border: 1px solid rgba(255, 255, 255, .06);
+    border-radius: 16px;
+    padding: 24px;
+    transition: all .3s
+}
+
+.disc-card:hover {
+    background: rgba(255, 255, 255, .05)
+}
+
+.disc-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px
+}
+
+.disc-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, .6);
+    font-size: 14px
+}
+
+.disc-author b {
+    color: #fff
+}
+
+.disc-avatar {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #6c5ce7, #a855f7);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px
+}
+
+.disc-tag {
+    color: rgba(255, 255, 255, .4);
+    font-size: 12px;
+    background: rgba(255, 255, 255, .05);
+    padding: 4px 10px;
+    border-radius: 6px
+}
+
+.disc-card h3 {
+    color: #fff;
+    margin: 0 0 8px;
+    font-size: 18px
+}
+
+.disc-content {
+    color: rgba(255, 255, 255, .6);
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 16px
+}
+
+.disc-replies {
+    margin: 16px 0;
+    padding: 16px;
+    background: rgba(255, 255, 255, .02);
+    border-radius: 12px
+}
+
+.disc-replies h4 {
+    color: rgba(255, 255, 255, .4);
+    font-size: 13px;
+    margin: 0 0 12px
+}
+
+.disc-reply {
+    padding: 12px;
+    border-left: 2px solid rgba(108, 92, 231, .3);
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, .6);
+    font-size: 13px
+}
+
+.disc-reply b {
+    color: #a855f7
+}
+
+.disc-reply p {
+    margin: 4px 0 0
+}
+
+.disc-reply-box {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px
+}
+
+.disc-btn-reply {
+    padding: 10px 20px;
+    background: rgba(108, 92, 231, .2);
+    border: 1px solid rgba(108, 92, 231, .3);
+    border-radius: 10px;
+    color: #a855f7;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer
+}
+
+.disc-empty {
+    text-align: center;
+    padding: 80px 20px
+}
+
+.disc-empty h3 {
+    color: #fff;
+    margin: 16px 0 8px
+}
+
+.disc-back-btn {
+    color: #a855f7;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 14px;
+    background: rgba(168, 85, 247, .1);
+    border-radius: 10px;
+    transition: all .3s;
+    white-space: nowrap
+}
+
+.disc-back-btn:hover {
+    background: rgba(168, 85, 247, .2)
+}
+
+.disc-btn-delete {
+    padding: 6px 14px;
+    background: rgba(255, 107, 107, .1);
+    border: 1px solid rgba(255, 107, 107, .2);
+    border-radius: 8px;
+    color: #ff6b6b;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .3s;
+    margin-top: 12px
+}
+
+.disc-btn-delete:hover {
+    background: rgba(255, 107, 107, .2)
+}
+
+.disc-card-bottom {
+    display: flex;
+    flex-direction: column
+}
