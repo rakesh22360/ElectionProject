@@ -26,13 +26,13 @@ import org.springframework.beans.factory.annotation.Value;
 public class SecurityConfig {
 
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
-    private final List<String> allowedOrigins;
+    private final String allowedOriginsStr;
 
     public SecurityConfig(
             JwtAuthenticationFilter jwtAuthenticationFilter,
-            @Value("${app.cors.allowed-origins}") List<String> allowedOrigins) {
+            @Value("${app.cors.allowed-origins}") String allowedOriginsStr) {
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
-        this.allowedOrigins = allowedOrigins;
+        this.allowedOriginsStr = allowedOriginsStr;
     }
 
     @Bean
@@ -67,7 +67,8 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(allowedOrigins);
+        List<String> origins = Arrays.asList(allowedOriginsStr.split(","));
+        configuration.setAllowedOrigins(origins);
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "X-Requested-With"));
         configuration.setAllowCredentials(true);
