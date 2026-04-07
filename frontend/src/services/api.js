@@ -12,6 +12,9 @@ api.interceptors.request.use((config) => {
     return config;
 });
 
+// Captcha
+export const getCaptcha = () => api.get('/auth/captcha');
+
 // Elections
 export const getElections = () => api.get('/elections');
 export const getElection = (id) => api.get(`/elections/${id}`);

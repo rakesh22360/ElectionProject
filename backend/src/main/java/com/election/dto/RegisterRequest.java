@@ -21,6 +21,8 @@ public class RegisterRequest {
     @NotBlank
     private String role;
 
+    private String captchaToken;
+
     public String getUsername() {
         return username;
     }
@@ -59,5 +61,13 @@ public class RegisterRequest {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getCaptchaToken() {
+        return captchaToken;
+    }
+
+    public void setCaptchaToken(String captchaToken) {
+        this.captchaToken = captchaToken;
     }
 }

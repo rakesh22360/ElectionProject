@@ -1,5 +1,4 @@
 import { createContext, useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
 
 const AuthContext = createContext(null);
@@ -24,6 +23,15 @@ export function AuthProvider({ children }) {
         return res.data;
     };
 
+    const googleLogin = async (idToken) => {
+        const res = await api.post('/auth/google', { idToken });
+        const data = res.data;
+        localStorage.setItem('currentUser', JSON.stringify(data));
+        localStorage.setItem('token', data.token);
+        setUser(data);
+        return data;
+    };
+
     const logout = () => {
         localStorage.removeItem('currentUser');
         localStorage.removeItem('token');
@@ -35,7 +43,7 @@ export function AuthProvider({ children }) {
     const isLoggedIn = () => !!user;
 
     return (
-        <AuthContext.Provider value={{ user, login, register, logout, getRole, hasRole, isLoggedIn }}>
+        <AuthContext.Provider value={{ user, login, register, googleLogin, logout, getRole, hasRole, isLoggedIn }}>
             {children}
         </AuthContext.Provider>
     );

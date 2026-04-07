@@ -32,4 +32,9 @@ public class AuthController {
         return ResponseEntity.ok(new JwtResponse(null, user.getId(), user.getUsername(),
                 user.getFullName(), user.getEmail(), user.getRole().name()));
     }
+
+    @PostMapping("/google")
+    public ResponseEntity<JwtResponse> googleLogin(@Valid @RequestBody GoogleAuthRequest request) {
+        return ResponseEntity.ok(authService.googleLogin(request));
+    }
 }
